@@ -13,6 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.hybridge.hello_world.ui.theme.Hello_WorldTheme
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.Arrangement
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,12 +36,31 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun HolaMundoApp(modifier: Modifier = Modifier) {
-    Text(
-        text = "Hola Mundo",
-        modifier = modifier,
-        style = MaterialTheme.typography.titleLarge,
-        color = MaterialTheme.colorScheme.primary
-    )
+    // Column apila elementos verticalmente
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        // Titular con tipografia grande
+        Text(
+            text = "Hola Mundo",
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.colorScheme.primary
+        )
+
+        // Espaciado vertical entre componentes
+        Spacer(modifier = Modifier.height(16.dp))
+
+        // Subtitulo con tipografia media
+        Text(
+            text = "Mi primer app con Andriod y Jetpack Compose",
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.secondary
+        )
+    }
 }
 
 @Preview(showBackground = true)
